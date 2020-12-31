@@ -3,10 +3,12 @@ name = "ntimes"
 version = "0.1.0"
 authors = ["Scott Newcomer <snewcomer24@gmail.com>"]
 edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "MIT"
+description = "Execute a command N times"
+readme = "README.md"
+homepage = "https://github.com/snewcomer/ntimes"
+repository = "https://github.com/snewcomer/ntimes"
+categories = ["command line utilities"]
 
 [dependencies]
-clap = "~2.33"
-structopt = "0.3"
 
