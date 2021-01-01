@@ -1,6 +1,6 @@
-name: CI for ntimes
+name: CI
 
-on: [push]
+on:
   push:
     branches:
       - master
