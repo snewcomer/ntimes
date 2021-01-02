@@ -110,6 +110,13 @@ mod tests {
     }
 
     #[test]
+    fn ntimes_sync_works() {
+        let mut cmd = Command::new("true");
+        let result = ntimes_sync(2, &mut cmd);
+        assert!(result.is_ok());
+    }
+
+    #[test]
     fn config_works() {
         let v = vec_of_strings!["2", "--", "curl", "https://"];
         let config = Config::new(v).unwrap();
