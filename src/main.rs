@@ -8,7 +8,7 @@ use std::io::{self, Write};
  * ntimes 100 -- curl 'https://..'
  *
  * sync
- * ntimes 100 -sync -- curl 'https://..'
+ * ntimes 100 -p -- curl 'https://..'
  */
 fn main() {
     let args: Vec<String> = std::env::args().skip(1).collect();
@@ -21,16 +21,16 @@ fn main() {
     let mut cmd = Command::new(config.cmd_name);
     cmd.args(config.positional_args);
 
-    if config.command_args.first() == Some(&"-sync".to_string()) {
-        if let Err(e) = ntimes_sync(config.count, &mut cmd) {
-            // ensure if redirect to a new file that error shows up onscreen
-            eprintln!("Error processing sync reqeusts: {}", e);
-            process::exit(1);
-        }
-    } else {
+    if config.command_args.first() == Some(&"-p".to_string()) {
         if let Err(e) = ntimes_parallel(config.count, &mut cmd) {
             // ensure if redirect to a new file that error shows up onscreen
             eprintln!("Error processing parallel reqeusts: {}", e);
+            process::exit(1);
+        }
+    } else {
+        if let Err(e) = ntimes_sync(config.count, &mut cmd) {
+            // ensure if redirect to a new file that error shows up onscreen
+            eprintln!("Error processing sync reqeusts: {}", e);
             process::exit(1);
         }
     }
