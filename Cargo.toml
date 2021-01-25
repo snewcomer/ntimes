@@ -8,7 +8,7 @@ description = "Execute a command N times"
 readme = "README.md"
 homepage = "https://github.com/snewcomer/ntimes"
 repository = "https://github.com/snewcomer/ntimes"
-categories = ["command-line-utilities"]
+categories = ["command-line-utilities", "networking"]
 
 [dependencies]
 
